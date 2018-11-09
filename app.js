@@ -2,7 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://guest1:guest1@ds247223.mlab.com:47223/local_library';
+var mongoDB = process.env.MONGODB_URI || 'mongodb://guest1:guest1@ds247223.mlab.com:47223/local_library';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
